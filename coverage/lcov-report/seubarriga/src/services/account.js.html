@@ -21,7 +21,7 @@
     <div class='clearfix'>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -60,74 +60,74 @@
 35
 36
 37
-38</td><td class="line-coverage quiet"><span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+38</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const ValidationError = require('../errors/ValidationError');
 &nbsp;
 module.exports = (app) =&gt; {
-  const findAll = (userId) =&gt; {
-    return app.db('accounts').where({ user_id: userId });
+  const findAll = <span class="fstat-no" title="function not covered" >(u</span>serId) =&gt; {
+<span class="cstat-no" title="statement not covered" >    return app.db('accounts').where({ user_id: userId });</span>
   };
 &nbsp;
-  const find = (filter = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> =&gt; {
-    return app.db('accounts').where(filter).first();
+  const find = <span class="fstat-no" title="function not covered" >(f</span>ilter = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >    return app.db('accounts').where(filter).first();</span>
   };
 &nbsp;
-  const save = async (account) =&gt; {
-    if (!account.name) throw new ValidationError('Nome é um atributo obrigatório');
+  const save = <span class="fstat-no" title="function not covered" >as</span>ync (account) =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (!account.name) <span class="cstat-no" title="statement not covered" >throw new ValidationError('Nome é um atributo obrigatório');</span></span>
 &nbsp;
-    const accDb = await find({ name: account.name, user_id: account.user_id });
-    if (accDb) throw new ValidationError('Já existe uma conta com esse nome');
+    const accDb = <span class="cstat-no" title="statement not covered" >await find({ name: account.name, user_id: account.user_id });</span>
+<span class="cstat-no" title="statement not covered" >    if (accDb) <span class="cstat-no" title="statement not covered" >throw new ValidationError('Já existe uma conta com esse nome');</span></span>
 &nbsp;
-    return app.db('accounts').insert(account, '*');
+<span class="cstat-no" title="statement not covered" >    return app.db('accounts').insert(account, '*');</span>
   };
 &nbsp;
-  const update = (id, account) =&gt; {
-    return app.db('accounts')
+  const update = <span class="fstat-no" title="function not covered" >(i</span>d, account) =&gt; {
+<span class="cstat-no" title="statement not covered" >    return app.db('accounts')</span>
       .where({ id })
       .update(account, '*');
   };
 &nbsp;
-  const remove = async (id) =&gt; {
-    const transaction = await app.services.transaction.findOne({ acc_id: id });
-    if (transaction) throw new ValidationError('Essa conta possui transações associadas');
+  const remove = <span class="fstat-no" title="function not covered" >as</span>ync (id) =&gt; {
+    const transaction = <span class="cstat-no" title="statement not covered" >await app.services.transaction.findOne({ acc_id: id });</span>
+<span class="cstat-no" title="statement not covered" >    if (transaction) <span class="cstat-no" title="statement not covered" >throw new ValidationError('Essa conta possui transações associadas');</span></span>
 &nbsp;
-    return app.db('accounts')
+<span class="cstat-no" title="statement not covered" >    return app.db('accounts')</span>
       .where({ id })
       .del();
   };
@@ -140,7 +140,7 @@ module.exports = (app) =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Dec 06 2021 16:47:57 GMT-0300 (GMT-03:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Dec 06 2021 17:02:04 GMT-0300 (GMT-03:00)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
