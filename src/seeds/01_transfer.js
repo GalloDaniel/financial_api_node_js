@@ -1,4 +1,3 @@
-
 exports.seed = (knex) => {
   return knex('transactions').del()
     .then(() => knex('transfers').del())
